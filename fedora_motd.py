@@ -36,8 +36,18 @@ class UpdateInfoPlugin(BaseMotdPlugin):
         return formatted_msg
 
 
+class LoggedinUsersPlugin(BaseMotdPlugin):
+
+    CMD = 'users'
+
+    def format(self, msg):
+        msg = msg.decode().strip()
+        return "Logged in users: {}".format(
+            ', '.join(set(msg.split())))
+
+
 def run():
-    plugins = [_() for _ in [UpdateInfoPlugin]]
+    plugins = [_() for _ in [UpdateInfoPlugin, LoggedinUsersPlugin]]
 
     for plugin in plugins:
         print(plugin.message)
