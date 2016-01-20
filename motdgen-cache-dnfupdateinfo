@@ -1,0 +1,2 @@
+#!/bin/sh
+dnf -qC updateinfo > /var/run/dnf-updateinfo.txt
