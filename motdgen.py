@@ -1,6 +1,7 @@
 import argparse
 import os
 import subprocess
+import sys
 
 
 def run_script(path):
@@ -26,7 +27,7 @@ def generate_motd(source='/etc/motdgen.d/', outfile=None):
         with open(outfile, 'w') as f:
             f.write(message)
     else:
-        print message
+        sys.stdout.write(message)
 
 
 def cli():
