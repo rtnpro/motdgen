@@ -1,0 +1,4 @@
+recursive-include dnf *.sh
+include pam.d/motdgen
+include motdgen.sh
+recursive-include motdgen.d *.sh
