@@ -1,1 +1,1 @@
- session     optional      pam_exec.so motdgen -o /var/run/motd
+ session     required      pam_exec.so /usr/bin/motdgen -o /var/run/motd
