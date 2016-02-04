@@ -11,16 +11,16 @@ setup(
     author_email='rtnpro@gmail.com',
     url='https://github.com/rtnpro/fedora-motd',
     license="GPLv2",
-    entry_points={
-        'console_scripts': ['motdgen=motdgen:cli'],
-    },
-    scripts=["motdgen-cache-dnfupdateinfo"],
+    scripts=["motdgen", "motdgen-cache-dnfupdateinfo"],
     packages=find_packages(),
     include_package_data=True,
     data_files=[
         ('/etc/profile.d', ['motdgen.sh']),
         ('/etc/pam.d', ['pam.d/motdgen']),
         ('/usr/lib/python2.7/site-packages/dnf-plugins',
-         ['dnf/plugins/cache_updateinfo.py'])
+         ['dnf/plugins/cache_updateinfo.py']),
+        ('/etc/motdgen.d', [
+            'motdgen.d/01-uptime.sh',
+            'motdgen.d/02-updateinfo.sh'])
     ]
 )
