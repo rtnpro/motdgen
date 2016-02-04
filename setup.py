@@ -21,6 +21,7 @@ setup(
          ['dnf/plugins/cache_updateinfo.py']),
         ('/etc/motdgen.d', [
             'motdgen.d/01-uptime.sh',
-            'motdgen.d/02-updateinfo.sh'])
+            'motdgen.d/02-updateinfo.sh']),
+        ('/etc/cron.daily', ['motdgen-cache-dnfupdateinfo'])
     ]
 )
