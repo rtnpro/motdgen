@@ -4,10 +4,13 @@ import os
 import subprocess
 import sys
 
+ALLOWED_SCRIPT_EXTENSIONS = ['.py', '.sh']
+
 
 def run_script(path):
+    executable = 'python' if path.endswith('.py') else 'sh'
     ret = subprocess.Popen(
-        path, shell=True, stdin=subprocess.PIPE,
+        '{} {}'.format(executable, path), shell=True, stdin=subprocess.PIPE,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
     out, err = ret.communicate()
     return out
@@ -17,7 +20,8 @@ def run_scripts(path):
     output = ""
     for item in sorted(os.listdir(path)):
         item_path = os.path.join(path, item)
-        if os.path.isfile(item_path) and os.access(item_path, os.X_OK):
+        extension = '.{}'.format(item_path.split('.')[-1])
+        if os.path.isfile(item_path) and extension in ALLOWED_SCRIPT_EXTENSIONS:
             output += run_script(item_path)
     return output
 
