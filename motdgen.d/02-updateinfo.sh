@@ -1,5 +1,3 @@
-#!/bin/sh
-
 path=/var/run/dnf-updateinfo.txt
 if [ -f "$path" ]; then
     cat $path
