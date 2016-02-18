@@ -1,4 +1,4 @@
-path=/var/run/dnf-updateinfo.txt
+path=/var/run/updateinfo.txt
 if [ -f "$path" ]; then
     cat $path
 else

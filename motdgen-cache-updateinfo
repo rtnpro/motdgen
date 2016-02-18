@@ -1,0 +1,14 @@
+#!/bin/sh
+if hash rpm-ostree 2>/dev/null; then
+    rpm-ostree upgrade --check --preview > /tmp/rpmostree_updateinfo.out
+    updates=$(cat /tmp/rpmostree_updateinfo.out | grep "^\!" | wc -l)
+    new=$(cat /tmp/rpmostree_updateinfo.out | grep "^+" | wc -l)
+
+    if [ $updates -ne 0 ] || [ $new -ne 0 ]; then
+        echo "Updates available: $updates update(s), $new install(s)." > /var/run/updateinfo.txt
+    else
+        echo "No updates available." > /var/run/updateinfo.txt
+    fi
+else
+    dnf -qC updateinfo > /var/run/updateinfo.txt
+fi

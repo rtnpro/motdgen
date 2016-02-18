@@ -11,7 +11,7 @@ setup(
     author_email='rtnpro@gmail.com',
     url='https://github.com/rtnpro/fedora-motd',
     license="GPLv2",
-    scripts=["motdgen", "motdgen-cache-dnfupdateinfo"],
+    scripts=["motdgen", "motdgen-cache-updateinfo"],
     packages=find_packages(),
     include_package_data=True,
     data_files=[
@@ -22,6 +22,6 @@ setup(
         ('/etc/motdgen.d', [
             'motdgen.d/01-uptime.sh',
             'motdgen.d/02-updateinfo.sh']),
-        ('/etc/cron.daily', ['motdgen-cache-dnfupdateinfo'])
+        ('/etc/cron.daily', ['motdgen-cache-updateinfo'])
     ]
 )
