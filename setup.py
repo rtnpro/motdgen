@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='motdgen',
-    version='0.1',
+    version='0.1.1',
     description='A utility to generate dynamic Message Of The Day.',
     author='Ratnadeep Debnath',
     author_email='rtnpro@gmail.com',
