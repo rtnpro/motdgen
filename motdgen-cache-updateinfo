@@ -1,5 +1,5 @@
 #!/bin/sh
-if hash rpm-ostree 2>/dev/null; then
+if [ -f /run/ostree-booted ]; then
     rpm-ostree upgrade --check --preview > /tmp/rpmostree_updateinfo.out
     updates=$(cat /tmp/rpmostree_updateinfo.out | grep "^\!" | wc -l)
     new=$(cat /tmp/rpmostree_updateinfo.out | grep "^+" | wc -l)
