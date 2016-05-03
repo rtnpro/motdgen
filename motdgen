@@ -10,10 +10,10 @@ ALLOWED_SCRIPT_EXTENSIONS = ['.py', '.sh']
 def run_script(path):
     executable = 'python' if path.endswith('.py') else 'sh'
     ret = subprocess.Popen(
-        '{} {}'.format(executable, path), shell=True, stdin=None,
-        stdout=None, stderr=None, close_fds=True)
+        '{} {}'.format(executable, path), shell=True, stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
     out, err = ret.communicate()
-    return out or ''
+    return out
 
 
 def run_scripts(path):
