@@ -1,0 +1,7 @@
+[Unit]
+Description=motdgen.service
+
+[Service]
+ExecStart=/usr/bin/motdgen
+Type=oneshot
+RemainAfterExit=yes

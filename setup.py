@@ -9,7 +9,7 @@ setup(
     description='A utility to generate dynamic Message Of The Day.',
     author='Ratnadeep Debnath',
     author_email='rtnpro@gmail.com',
-    url='https://github.com/rtnpro/fedora-motd',
+    url='https://github.com/rtnpro/motdgen',
     license="GPLv2",
     scripts=["motdgen", "motdgen-cache-updateinfo"],
     packages=find_packages(),
@@ -22,6 +22,7 @@ setup(
         ('/etc/motdgen.d', [
             'motdgen.d/01-uptime.sh',
             'motdgen.d/02-updateinfo.sh']),
-        ('/etc/cron.daily', ['motdgen-cache-updateinfo'])
+        ('/etc/cron.daily', ['motdgen-cache-updateinfo']),
+        ('/etc/systemd/system', ['motdgen.service'])
     ]
 )
