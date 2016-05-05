@@ -23,6 +23,7 @@ setup(
             'motdgen.d/01-uptime.sh',
             'motdgen.d/02-updateinfo.sh']),
         ('/etc/cron.daily', ['motdgen-cache-updateinfo']),
-        ('/etc/systemd/system', ['motdgen.service'])
+        ('/etc/systemd/system', ['motdgen.service']),
+        ('/var/run', ['motd'])
     ]
 )
