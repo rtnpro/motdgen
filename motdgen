@@ -30,6 +30,11 @@ def run_scripts(path):
 def generate_motd(source='/etc/motdgen.d/', outfile=None):
     message = run_scripts(source)
     if outfile:
+        # Create output dir if missing
+        outdir = os.path.dirname(outfile)
+        if outdir and not os.path.isdir(outdir):
+            os.mkdir(outdir)
+
         with open(outfile, 'w') as f:
             f.write(message)
     else:

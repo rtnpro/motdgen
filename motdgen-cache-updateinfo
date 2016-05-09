@@ -1,4 +1,11 @@
 #!/bin/sh
+
+# Create /var/run/motdgen if missing
+rundir=/var/run/motdgen
+if [ ! -f "$rundir" ]; then
+    mkdir $rundir
+fi
+
 if [ -f /run/ostree-booted ]; then
     rpm-ostree upgrade --check --preview > /var/run/motdgen/rpmostree_updateinfo.out
     updates=$(cat /var/run/motdgen/rpmostree_updateinfo.out | grep "^\!" | wc -l)
