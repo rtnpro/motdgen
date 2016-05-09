@@ -1,6 +1,6 @@
-# Fedora MOTD
+# motdgen
 
-Generate dynamic MOTD: Message of the day, for Fedora
+Generate dynamic MOTD: Message of the day
 
 ## Setup
 
@@ -9,6 +9,10 @@ sudo python setup.py install
 sudo echo "session    include      motdgen" >> /etc/pam.d/sshd
 sudo motdgen-cache-dnfupdateinfo
 ```
+
+or, just
+
+``[sudo] dnf install fedora-motd``
 
 ## Usage
 
