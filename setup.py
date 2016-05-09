@@ -24,6 +24,6 @@ setup(
             'motdgen.d/02-updateinfo.sh']),
         ('/etc/cron.daily', ['motdgen-cache-updateinfo']),
         ('/etc/systemd/system', ['motdgen.service']),
-        ('/var/run', ['motd'])
+        ('/var/run/motdgen', ['motd'])
     ]
 )

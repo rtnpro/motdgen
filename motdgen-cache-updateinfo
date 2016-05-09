@@ -1,14 +1,14 @@
 #!/bin/sh
 if [ -f /run/ostree-booted ]; then
-    rpm-ostree upgrade --check --preview > /var/run/rpmostree_updateinfo.out
-    updates=$(cat /var/run/rpmostree_updateinfo.out | grep "^\!" | wc -l)
-    new=$(cat /var/run/rpmostree_updateinfo.out | grep "^+" | wc -l)
+    rpm-ostree upgrade --check --preview > /var/run/motdgen/rpmostree_updateinfo.out
+    updates=$(cat /var/run/motdgen/rpmostree_updateinfo.out | grep "^\!" | wc -l)
+    new=$(cat /var/run/motdgen/rpmostree_updateinfo.out | grep "^+" | wc -l)
 
     if [ $updates -ne 0 ] || [ $new -ne 0 ]; then
-        echo "Updates available: $updates update(s), $new install(s)." > /var/run/updateinfo.txt
+        echo "Updates available: $updates update(s), $new install(s)." > /var/run/motdgen/updateinfo.txt
     else
-        echo "No updates available." > /var/run/updateinfo.txt
+        echo "No updates available." > /var/run/motdgen/updateinfo.txt
     fi
 else
-    dnf -qC updateinfo > /var/run/updateinfo.txt
+    dnf -qC updateinfo > /var/run/motdgen/updateinfo.txt
 fi
