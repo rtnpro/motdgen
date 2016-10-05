@@ -1,0 +1,15 @@
+sudo ostree admin unlock --hotfix
+sudo rpm -ivh https://kojipkgs.fedoraproject.org//packages/fedora-motd/0.1.3/1.fc24/noarch/fedora-motd-0.1.3-1.fc24.noarch.rpm
+
+ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+@@ sudo reboot
+SLEEP 40
+
+curl https://raw.githubusercontent.com/rtnpro/motdgen/master/tunirtests/tests.py > /tmp/tests.py
+
+cat /tmp/tests.py
+
+cd /tmp; python -m unittest tests

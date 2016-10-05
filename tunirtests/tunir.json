@@ -1,0 +1,7 @@
+{
+  "name": "tunir",
+  "type": "vm",
+  "image": "/home/rtnpro/boxes/Fedora-Atomic-24-20160820.0.x86_64.qcow2",
+  "ram": 2048,
+  "user": "fedora"
+}
