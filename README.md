@@ -28,3 +28,8 @@ Updates Information Summary: available
      1 other notice(s)
 ```
 
+## Tests
+
+- Install tunir as mentioned at https://tunir.readthedocs.io/en/latest/installation.html
+- Download fedora atomic image as ``fedora-atomic.qcow2`` in the current directory
+- Run the tests: ``sudo tunir tunirtests/tunir``
