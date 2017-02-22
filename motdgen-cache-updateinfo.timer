@@ -1,0 +1,5 @@
+[Unit]
+Description=Run motdgen-cache-updateinfo.service every 10 minutes
+
+[Timer]
+OnCalendar=*-*-* 00:00:00

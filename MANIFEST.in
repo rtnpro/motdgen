@@ -1,4 +1,6 @@
 recursive-include dnf *.sh
 include pam.d/motdgen
 include motdgen.sh
+include *.service
+include *.timer
 recursive-include motdgen.d *.sh

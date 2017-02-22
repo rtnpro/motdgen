@@ -1,0 +1,7 @@
+[Unit]
+Description=motdgen-cache-updateinfo.service
+
+[Service]
+ExecStart=/usr/bin/motdgen-cache-updateinfo
+Type=oneshot
+RemainAfterExit=yes
